@@ -1,10 +1,10 @@
 globalConfig:
   # 作者
-  author: Una Ma
+  author: bladestone
   # 生成完是否打开
   open: false
   # 指定生成的主键的ID类型 默认值：null
-  idType: INPUT
+  idType: AUTO
   # 时间类型对应策略 默认值：TIME_PACK
   dateType: ONLY_DATE
   # 是否在xml中添加二级缓存配置 默认值：false
@@ -23,24 +23,24 @@ globalConfig:
   serviceName: "%sService"
 dataSourceConfig:
   # 数据库连接地址
-  url: jdbc:mysql://127.0.0.1:3309/bl2?useUnicode=true&useSSL=false&characterEncoding=utf8
+  url: jdbc:mysql://127.0.0.1:3306/bistu_data?useUnicode=true&useSSL=false&characterEncoding=utf8&allowPublicKeyRetrieval=true
   # 数据库驱动
-  driverName: com.mysql.jdbc.Driver
+  driverName: com.mysql.cj.jdbc.Driver
   # 数据库用户名
   username: root
   # 数据库密码
-  password: 123456
+  password: root1234
 packageConfig:
   # 父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
-  parent: com.una.product
+  parent: org.spb.code
   # 父包模块名
 #  moduleName: api
   # Entity包名
-  entity: mybatis.model
+  entity: dao.model
   # Service包名
-  service: mybatis.service
+  service: dao.service
   # Service Impl包名
-  serviceImpl: mybatis.service.impl
+  serviceImpl: dao.service.impl
   # Mapper包名
   mapper: mybatis.mapper
   # Mapper XML包名
@@ -49,12 +49,12 @@ packageConfig:
   controller: controller
   # 路径配置信息
   pathInfo:
-    entity_path: ./src/main/java/com/una/product/mybatis/model
-    service_path: ./src/main/java/com/una/product/mybatis/service
-    service_impl_path: ./src/main/java/com/una/product/mybatis/service/impl
-    mapper_path: ./src/main/java/com/una/product/mybatis/mapper
-    xml_path: ./src/main/resources/mapper
-    controller_path: ./src/main/java/com/una/product/controller
+    entity_path: ./src/main/java/org/spb/code/dao/model
+    service_path: ./src/main/java/org/spb/code/dao/service
+    service_impl_path: ./src/main/java/org/spb/code/dao/service/impl
+    mapper_path: ./src/main/java/org/spb/code/dao/mapper
+    xml_path: ./src/main/resources/mybatis/mapper
+    controller_path: ./src/main/java/org/spb/code/controller
 # 是否生成下面文件 放开不生成 注释默认生成
 templateConfig:
 #  entity:
@@ -86,10 +86,11 @@ strategyConfig:
   restControllerStyle: true
   # 表前缀
   tablePrefix:
+    - tc
   # 是否生成实体时，生成字段注解
   entityTableFieldAnnotationEnable: true
   # 【实体】是否生成字段常量（默认 false)
   entityColumnConstant: true
-  # 需要包含的表名，允许正则表达式（与exclude二选一配置)
+  # 需要包含的表名，允许正则表达式（与exclude二选一配置MpCodeGeneratorConfig)
   include:
-    - business_license
+    - tc_school
