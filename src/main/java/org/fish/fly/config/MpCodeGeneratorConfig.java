@@ -1,4 +1,4 @@
-package com.github.ciweigg.config;
+package org.fish.fly.config;
 
 import com.baomidou.mybatisplus.generator.config.*;
 import lombok.Data;
